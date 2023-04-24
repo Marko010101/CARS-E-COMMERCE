@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+}
+.bcolor {
+    background-color: rgb(155, 248, 217);
+}
+.ulfirst{
+    list-style: none;
+    gap: 10px;
+}
+.row{
+    display: flex;
+}
+.center{
+    text-align: center;
+}
