@@ -139,6 +139,7 @@ body{
     left: calc(50% - 146px/2 + 96px);
     top: calc(50% - 52px/2 + 185px);
     background: #000000;
+    
 }.buttons{
     box-sizing: border-box;
     padding: 16px 33px;
