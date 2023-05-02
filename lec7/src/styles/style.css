@@ -11,10 +11,10 @@ body{
     height: 1200px;  
 }
 .div-inside{
-    position: absolute;
+    margin-top: 50px;
+    margin-left: 50px;
     width: 1440px;
     height: 1120px;
-    left: 80px;
     top: 80px;
     background: #15121d73;
     box-shadow: 0px -32px 119px 40px rgba(0, 0, 0, 0.164);
