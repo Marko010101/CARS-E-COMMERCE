@@ -5,11 +5,6 @@
 body{
     background-image: url(/lec7/src/img/Bg.png);
 }
-.div-cover{
-    position: relative;
-    width: 1600px;
-    height: 1200px;  
-}
 .div-inside{
     margin-top: 50px;
     margin-left: 50px;
@@ -17,7 +12,7 @@ body{
     height: 1120px;
     top: 80px;
     background: #15121d73;
-    box-shadow: 0px -32px 119px 40px rgba(0, 0, 0, 0.164);
+    box-shadow: 0px -32px 119px 40px rgba(0, 0, 0, 0.63);
     border-radius: 2px;
 }
 .w-65{
@@ -102,6 +97,7 @@ h1{
     font-size: 18px;
     line-height: 23px;
     color: #FFFFFF;
+    margin-top: 40px;
 }
 .img-1{
     width: 332.5px;
@@ -187,7 +183,13 @@ h2{
     box-shadow: 0px 4px 97px rgba(255, 86, 246, 0.51);
     backdrop-filter: blur(96px);
     border-radius: 2px;
-    margin-top: 20px;
+    margin-top: 75px;
+
+}
+.arrow{
+    width: 47px;
+    height: 24px;
+    margin-left: 592px;
 }
 
 
