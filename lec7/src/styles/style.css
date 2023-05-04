@@ -4,6 +4,8 @@
 }
 body{
     background-image: url(/lec7/src/img/Bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .div-inside{
     margin-top: 50px;
