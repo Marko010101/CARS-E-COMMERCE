@@ -10,6 +10,7 @@ body{
     background-position: center;
     overflow-y: hidden;
     overflow-x: hidden;
+    position: relative;
 }
 .resistance1{
     margin-left:407px ;
