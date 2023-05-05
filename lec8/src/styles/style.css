@@ -3,6 +3,7 @@
     margin: 0;
 }
 body{
+    background-color: black;
     background-image:url(/lec8/src/img/Road.svg) ;
     background-repeat: no-repeat;
     background-size: 60% ;  
@@ -11,6 +12,31 @@ body{
     overflow-y: hidden;
     overflow-x: hidden;
     position: relative;
+}
+.absolute{
+    position:absolute ;
+}
+.live{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 50px;
+    height: 30px;
+    color: antiquewhite;
+}
+.ellipse{
+    position: absolute;
+    margin-top: 27px;
+    margin-left: 110px;
+    width: 25px;
+    height: 25px;
+    color: antiquewhite;
+}
+h1{
+    position: absolute; 
+    margin-top: 80px;
+    margin-left: 20px;
+    color: antiquewhite;
 }
 .resistance1{
     margin-left:407px ;
