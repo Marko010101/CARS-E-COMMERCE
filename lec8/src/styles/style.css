@@ -3,7 +3,7 @@
     margin: 0;
 }
 body{
-    background-color: black;
+    background-color: '#66666e';
     background-image:url(/lec8/src/img/Road.svg) ;
     background-repeat: no-repeat;
     background-size: 60% ;  
@@ -22,7 +22,7 @@ body{
     margin-left: 20px;
     width: 50px;
     height: 30px;
-    color: antiquewhite;
+    color: rgb(0, 0, 0);
 }
 .ellipse{
     position: absolute;
@@ -30,13 +30,13 @@ body{
     margin-left: 110px;
     width: 25px;
     height: 25px;
-    color: antiquewhite;
+    color: rgb(0, 0, 0);
 }
 h1{
     position: absolute; 
     margin-top: 80px;
     margin-left: 20px;
-    color: antiquewhite;
+    color: rgb(0, 0, 0);
 }
 .resistance1{
     margin-left:407px ;
