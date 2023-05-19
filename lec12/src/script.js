@@ -101,7 +101,7 @@ function showMovies(movies) {
       <div>
         <h3>movie title - ${movie.title}</h3>
         <h5>language - ${movie.original_language}</h5>
-        <h4>overview </h4>
+        <h4>overview:</h4>
         <p> ${movie.overview}</p>
         <h6 class="${voteClass}">IMDb - ${movie.vote_average}</h6>
         <img src="${IMG_PATH}${movie.poster_path}">
