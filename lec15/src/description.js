@@ -71,11 +71,6 @@ const createPokemonCard = async (pokemon) => {
     </div>
   `;
 
-  // Add a click event listener to the Pokemon card to redirect to a description page
-  pokemonEl.addEventListener("click", () => {
-    window.location.href = `description.html?name=${pokemon.name}&id=${pokemon.id}`;
-  });
-
   // Set the HTML content for the Pokemon card
   pokemonEl.innerHTML = pokemonInnerHtml;
 
