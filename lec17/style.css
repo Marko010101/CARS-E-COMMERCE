@@ -5,9 +5,6 @@ body {
   margin: 0;
   padding: 0;
 }
-.gapp {
-  margin-right: 10px;
-}
 .img-W {
   margin-left: 20px;
   width: 608px;
@@ -32,10 +29,13 @@ body {
   float: right;
 }
 .description-image {
-  width: 400px;
-  height: 300px;
-  margin-left: 200px;
+  width: 100%;
 }
 .name-desc {
   font-size: 35px;
 }
+.mb-css {
+  margin-bottom: 20%;
+}
+/* @media (max-width: 600px) {
+} */

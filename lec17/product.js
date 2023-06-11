@@ -55,12 +55,22 @@ get(ref(database, "/products/cars/"))
         productEl.classList.add("col-3");
         productEl.innerHTML = `
     <div class="mt-3">
-        <img class="product_image" id="description" src="${data[product].image}" >
+        <img class="product_image" id="description" src="${
+          data[product].image || data[product].img
+        }" >
         <div class="product_info text-center mb-5">
-            <div class="product_name mt-2"><b>model:</b> ${data[product].company} ${data[product].model}</div>
-            <div class="product_price mt-1"><b>price:</b> ${data[product].price}</div>
-            <div class="product_price mt-1"><b>color:</b> ${data[product].color}</div>
-            <div class="product_price mt-1"><b>year:</b> ${data[product].year}</div>
+            <div class="product_name mt-2"><b>model:</b> ${
+              data[product].company
+            } ${data[product].model}</div>
+            <div class="product_price mt-1"><b>price:</b> ${
+              data[product].price
+            }</div>
+            <div class="product_price mt-1"><b>color:</b> ${
+              data[product].color
+            }</div>
+            <div class="product_price mt-1"><b>year:</b> ${
+              data[product].year
+            }</div>
             <button class="btn btn-primary mt-1">Add to Cart</button>
         </div>
     </div>
@@ -68,10 +78,11 @@ get(ref(database, "/products/cars/"))
 
         product_container.appendChild(productEl);
         Loading(false);
-
         const description = productEl.querySelector("#description");
         description.addEventListener("click", () => {
-          window.location.href = `description.html?name=${product.cars}&id=${product.id}`;
+          const carName = data[product].model;
+          const carId = data[product].id;
+          window.location.href = `description.html?name=${carName}&id=${carId}`;
         });
       });
     } else {

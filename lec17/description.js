@@ -36,27 +36,39 @@ get(ref(database, "/products/cars/"))
       const data = snapshot.val();
       console.log(data);
 
-      // ...
+      const urlParams = new URLSearchParams(window.location.search);
+      const carName = urlParams.get("name");
+      const carId = urlParams.get("id");
+      const dataArray = Object.values(data); // Convert data object to an array
+      const car = dataArray.find(
+        (car) => car.id == carId && car.model == carName
+      );
+      console.log(car);
 
-      Object.keys(data).map((product) => {
-        const productEl = document.createElement("container");
-        productEl.innerHTML = `
-    <div class="mt-5">
-      <div class="name-desc text-center mb-4 mt-2"><b>model:</b> ${data[product].company} ${data[product].model}</div>
-      <div class="row">
-        <div class="col-6">
-              <img class="description-image" src="${data[product].image}">
-          </div> 
-          <div class="col-6 gappp mt-5">
-              <div class="product_price mt-1"><b>price:</b> ${data[product].price}</div>
-              <div class="product_price mt-1"><b>color:</b> ${data[product].color}</div>
-              <div class="product_price mt-1"><b>year:</b> ${data[product].year}</div>
-          </div>  
+      const productEl = document.createElement("container");
+      productEl.innerHTML = `
+        <div class="mt-5">
+          <div class="name-desc text-center mb-4 mt-2"><b>model:</b> ${
+            car.company
+          } ${car.model}</div>
+          <div class="row">
+            <div class="col-6">
+              <img class="description-image" src="${car.image || car.img}">
+            </div> 
+            <div class="col-6 row align-items-center mt-5">
+              <div class="col-1"></div>   
+              <div class="col-5 mb-css">
+                <div class="product_price mt-1"><b>price:</b> ${
+                  car.price
+                } </div>
+                <div class="product_price mt-1"><b>color:</b> ${car.color}</div>
+                <div class="product_price mt-1"><b>year:</b> ${car.year}</div>
+              </div>   
+            </div>  
+          </div>
         </div>
-    </div>
-  `;
-        product_container.appendChild(productEl);
-      });
+      `;
+      product_container.appendChild(productEl);
     } else {
       console.log("No data available");
     }

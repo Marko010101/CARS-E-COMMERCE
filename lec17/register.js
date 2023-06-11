@@ -53,7 +53,7 @@ form.addEventListener("submit", (e) => {
 ///////// Sign In //////////
 
 if (localStorage.getItem("accessToken")) {
-  //   window.location.href = "admin.html";
+  window.location.href = "admin.html";
 } else {
   alert("You are not logged in!");
 }
@@ -78,7 +78,7 @@ signIn.addEventListener("submit", (e) => {
 });
 
 if (localStorage.getItem("accessToken")) {
-  //   window.location.href = "admin.html";
+  window.location.href = "admin.html";
 } else {
   alert("You are not logged in!");
 }

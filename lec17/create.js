@@ -41,14 +41,14 @@ productSubmit.addEventListener("click", (e) => {
 
   const uid = Math.floor(Math.random() * 100000000000000000);
 
-  set(ref(database, "products/" + uid), {
+  set(ref(database, "/products/cars/" + uid), {
     company: company,
-    price: price,
-    brand: brand,
-    category: category,
+    model: model,
+    year: year,
     color: color,
     img: img,
-    random: uid,
+    id: uid,
+    price: price,
   })
     .then(() => {
       alert("Product Added");
