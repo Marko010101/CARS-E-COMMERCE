@@ -12,9 +12,9 @@ body {
   position: absolute;
 }
 .product_image {
-  width: 250px;
-  height: 210px;
-  border-radius: 550px;
+  width: 100%;
+  height: 190px;
+  border-radius: 600px;
 }
 .product_info {
   align-items: center;
@@ -36,6 +36,9 @@ body {
 }
 .mb-css {
   margin-bottom: 20%;
+}
+.file-css {
+  margin-top: -4%;
 }
 /* @media (max-width: 600px) {
 } */

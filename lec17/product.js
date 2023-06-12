@@ -93,6 +93,15 @@ get(ref(database, "/products/cars/"))
     console.error(error);
     alert(error);
   });
+
+if (localStorage.getItem("accessToken")) {
+  // window.location.href = "admin.html";
+} else {
+  window.location.href = "register.html";
+  alert(
+    "Please register to unlock exclusive features and personalized content. Join us today for a seamless and tailored experience!"
+  );
+}
 // function addToCart(productId) {
 //   let cart = [];
 

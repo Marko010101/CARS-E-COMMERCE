@@ -28,7 +28,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth(app);
-
+const storage = getStorage(app);
 const productSubmit = document.getElementById("createProd");
 
 productSubmit.addEventListener("click", (e) => {
@@ -36,25 +36,74 @@ productSubmit.addEventListener("click", (e) => {
   const model = document.getElementById("model").value;
   const year = document.getElementById("year").value;
   const color = document.getElementById("color").value;
-  const img = document.getElementById("img").value;
   const price = document.getElementById("price").value;
+  const fileInput = document.getElementById("fileInput");
+  const file = fileInput.files[0];
+  console.log(file);
 
-  const uid = Math.floor(Math.random() * 100000000000000000);
+  let timestamp = new Date().getTime();
+  const fileName = timestamp + file?.name;
+  console.log("test", fileName);
 
-  set(ref(database, "/products/cars/" + uid), {
-    company: company,
-    model: model,
-    year: year,
-    color: color,
-    img: img,
-    id: uid,
-    price: price,
-  })
-    .then(() => {
-      alert("Product Added");
+  if (file === undefined) {
+    const uid = Math.floor(Math.random() * 100000000000000000);
+
+    set(ref(database, "/products/cars/" + uid), {
+      company: company,
+      model: model,
+      year: year,
+      color: color,
+      img: null,
+      id: uid,
+      price: price,
     })
-    .catch((error) => {
-      console.error(error);
-      alert(error);
-    });
+      .then(() => {
+        alert("Product Added");
+      })
+      .catch((error) => {
+        console.error(error);
+        alert(error);
+      });
+  } else {
+    const uid = Math.floor(Math.random() * 100000000000000000);
+    const storageRef = sRef(storage, "images/" + fileName);
+
+    uploadBytes(storageRef, file)
+      .then((snapshot) => {
+        console.log(snapshot);
+        console.log("Uploaded a blob or file!");
+      })
+      .then(() => {
+        getDownloadURL(storageRef)
+          .then((url) => {
+            console.log(url);
+            document.getElementById("image").innerHTML = `
+            <img class="product_image mt-3" src="${url}" alt="" />
+          `;
+            set(ref(database, "/products/cars/" + uid), {
+              company: company,
+              model: model,
+              year: year,
+              color: color,
+              img: url ? url : "",
+              id: uid,
+              price: price,
+            });
+          })
+          .then(() => {
+            alert("Product Added");
+          })
+          .catch((error) => {
+            console.error(error);
+            alert(error);
+          });
+      });
+  }
 });
+if (localStorage.getItem("accessToken")) {
+} else {
+  window.location.href = "register.html";
+  alert(
+    "Please register to unlock exclusive features and personalized content. Join us today for a seamless and tailored experience!"
+  );
+}
