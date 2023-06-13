@@ -104,6 +104,6 @@ if (localStorage.getItem("accessToken")) {
 } else {
   window.location.href = "register.html";
   alert(
-    "Please register to unlock exclusive features and personalized content. Join us today for a seamless and tailored experience!"
+    "To access the full functionality of our website, please register and create an account. We're excited to have you on board!"
   );
 }

@@ -15,7 +15,49 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center mb-5 mt-3">Dream Car Depot</h1>
+      <div class="row align-items-center">
+        <div class="col-3">
+          <div class="centered-container mt-5">
+            <div>
+              <input
+                type="button"
+                id="decrementValueid"
+                value="-"
+                class="minus"
+              />
+              <input
+                type="text"
+                name="quantity"
+                maxlength="2"
+                max="10"
+                size="1"
+                id="number"
+                class="input-numbers"
+              />
+            </div>
+            <div>
+              <img src="img/icons8-cart-48.png" class="cart-img" />
+            </div>
+            <input
+              type="text"
+              name="quantity"
+              maxlength="10"
+              value=""
+              size="10"
+              id="counting"
+              class="input-numbers mt-2"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <h1 class="text-center mb-5 mt-3">Dream Car Depot</h1>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-danger mt-5" id="signOut">
+            Log out
+          </button>
+        </div>
+      </div>
       <hr />
       <a href="create.html" class="link-success text-end">List your car</a>
       <div class="row" id="product_container"></div>

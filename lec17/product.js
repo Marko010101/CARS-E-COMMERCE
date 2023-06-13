@@ -6,6 +6,7 @@ import {
   get,
 } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
 import {
+  signOut,
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -16,6 +17,7 @@ import {
   getDownloadURL,
 } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 import { ref as sRef } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBt0Gal6oePzhLkHYPZevgp83qQLNBATMM",
   authDomain: "markos-project---1st.firebaseapp.com",
@@ -48,42 +50,88 @@ get(ref(database, "/products/cars/"))
       const data = snapshot.val();
       console.log(data);
 
-      // ...
+      const decrementValueid = document.getElementById("decrementValueid");
+      decrementValueid.addEventListener("click", function () {
+        var value = parseInt(document.getElementById("number").value, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value > 0) {
+          value--;
+          document.getElementById("number").value = value;
+
+          const backColor = document.getElementById("number");
+          const colorChange = backColor.value;
+          const numberInput = parseInt(colorChange, 10);
+
+          if (numberInput === 0) {
+            backColor.style.backgroundColor = "red";
+          } else if (numberInput >= 1 && numberInput <= 5) {
+            backColor.style.backgroundColor = "yellow";
+          } else if (numberInput >= 6) {
+            backColor.style.backgroundColor = "green";
+          }
+        }
+      });
 
       Object.keys(data).map((product) => {
         const productEl = document.createElement("div");
         productEl.classList.add("col-3");
         productEl.innerHTML = `
     <div class="mt-3">
-        <img class="product_image" id="description" src="${
-          data[product].image || data[product].img
-        }" >
-        <div class="product_info text-center mb-5">
-            <div class="product_name mt-2"><b>model:</b> ${
-              data[product].company
-            } ${data[product].model}</div>
-            <div class="product_price mt-1"><b>price:</b> ${
-              data[product].price
-            }</div>
-            <div class="product_price mt-1"><b>color:</b> ${
-              data[product].color
-            }</div>
-            <div class="product_price mt-1"><b>year:</b> ${
-              data[product].year
-            }</div>
-            <button class="btn btn-primary mt-1">Add to Cart</button>
-        </div>
+      <img class="product_image" id="description" src="${
+        data[product].image || data[product].img
+      }">
+      <div class="product_info text-center mb-5">
+        <div class="product_name mt-2"><b>model:</b> ${data[product].company} ${
+          data[product].model
+        }</div>
+        <div class="product_price mt-1"><b>price:</b> ${
+          data[product].price
+        }</div>
+        <div class="product_price mt-1"><b>color:</b> ${
+          data[product].color
+        }</div>
+        <div class="product_price mt-1"><b>year:</b> ${data[product].year}</div>
+        <button id="btn-cart-${product}" type="button" class="btn btn-primary mt-1">Add to Cart</button>
+      </div>
     </div>
-    `;
+  `;
 
         product_container.appendChild(productEl);
         Loading(false);
+
         const description = productEl.querySelector("#description");
         description.addEventListener("click", () => {
           const carName = data[product].model;
           const carId = data[product].id;
           window.location.href = `description.html?name=${carName}&id=${carId}`;
         });
+
+        const addToCart = productEl.querySelector(`#btn-cart-${product}`);
+        addToCart.addEventListener("click", function () {
+          var value = parseInt(document.getElementById("number").value, 10);
+          value = isNaN(value) ? 0 : value;
+          if (value < Object.keys(data).length) {
+            //aq length rogor davumato productebis raodenobis
+            value++;
+            document.getElementById("number").value = value;
+
+            const backColor = document.getElementById("number");
+            const colorChange = backColor.value;
+            const numberInput = parseInt(colorChange, 10);
+
+            if (numberInput === 0) {
+              backColor.style.backgroundColor = "red";
+            } else if (numberInput >= 1 && numberInput <= 5) {
+              backColor.style.backgroundColor = "yellow";
+            } else if (numberInput >= 6) {
+              backColor.style.backgroundColor = "green";
+            }
+          }
+        });
+
+        document.getElementById("number").value = "0";
+        document.getElementById("number").style.backgroundColor = "red";
+        document.getElementById("counting");
       });
     } else {
       console.log("No data available");
@@ -95,29 +143,23 @@ get(ref(database, "/products/cars/"))
   });
 
 if (localStorage.getItem("accessToken")) {
-  // window.location.href = "admin.html";
 } else {
   window.location.href = "register.html";
   alert(
-    "Please register to unlock exclusive features and personalized content. Join us today for a seamless and tailored experience!"
+    "To access the full functionality of our website, please register and create an account. We're excited to have you on board!"
   );
 }
-// function addToCart(productId) {
-//   let cart = [];
+const buttonSignOut = document.getElementById("signOut");
 
-//   function addToCart() {
-//     const productEl = event.target.parentNode;
-//     const productName = productEl.querySelector(".product_name").innerText;
-//     const productDescription =
-//       productEl.querySelector(".product_price").innerText;
-//     const product = {
-//       name: productName,
-//       description: productDescription,
-//     };
-
-//     cart.push(product);
-
-//     alert("Product added to cart!");
-//     console.log(cart);
-//   }
-// }
+buttonSignOut.addEventListener("click", () => {
+  const authh = getAuth();
+  signOut(authh)
+    .then(() => {
+      localStorage.removeItem("accessToken");
+      window.location.href = "register.html";
+      alert("Logout successful. Thank you for using our services!");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});

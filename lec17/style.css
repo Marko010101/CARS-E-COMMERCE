@@ -8,8 +8,7 @@ body {
 .img-W {
   margin-left: 20px;
   width: 608px;
-  height: 101px;
-  position: absolute;
+  height: 110px;
 }
 .product_image {
   width: 100%;
@@ -40,5 +39,28 @@ body {
 .file-css {
   margin-top: -4%;
 }
+.btn-danger {
+  float: right;
+}
+.gapp {
+  margin-right: 10px;
+}
+.centered-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.input-numbers {
+  border-radius: 50px;
+  text-align: center;
+  font-size: 15px;
+}
+.minus {
+  width: 20px;
+  border-radius: 50px;
+  height: 35px;
+}
+
 /* @media (max-width: 600px) {
 } */
