@@ -47,7 +47,7 @@ get(ref(database, "/products/cars/"))
 
       const productEl = document.createElement("container");
       productEl.innerHTML = `
-        <div class="mt-5">
+        <div class="mt-5 product_info">
           <div class="name-desc text-center mb-4 mt-2"><b>model:</b> ${
             car.company
           } ${car.model}</div>
