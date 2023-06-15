@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+
     <title>Document</title>
   </head>
   <body>
@@ -35,22 +40,20 @@
                 class="input-numbers"
               />
             </div>
-            <div>
-              <img src="img/icons8-cart-48.png" class="cart-img" />
-            </div>
-            <input
-              type="text"
-              name="quantity"
-              maxlength="10"
-              value=""
-              size="10"
-              id="counting"
-              class="input-numbers mt-2"
-            />
           </div>
         </div>
         <div class="col-6">
           <h1 class="text-center mb-5 mt-3 h1-white">Dream Car Depot</h1>
+          <!-- cart section -->
+          <div class="topnav">
+            <a href="#home" class="active">cart</a>
+            <div id="myLinks">
+              <div class="cartItemsInside" id="cartItemsInside"></div>
+            </div>
+            <a href="javascript:void(0);" class="icon" id="openCart">
+              <img src="img/icons8-cart-48.png" class="cart-img" />
+            </a>
+          </div>
         </div>
         <div class="col-3">
           <button type="button" class="btn btn-danger mt-5" id="signOut">

@@ -72,13 +72,17 @@ signIn.addEventListener("submit", (e) => {
 
       if (user) {
         window.location.href = "admin.html";
+      } else {
+        alert("Email or Password is incorrect");
       }
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      alert("An error occurred during sign-in. Please try again.");
     });
 });
+
 if (localStorage.getItem("accessToken")) {
   window.location.href = "admin.html";
 }
