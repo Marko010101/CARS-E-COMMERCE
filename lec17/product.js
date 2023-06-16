@@ -64,14 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = snapshot.val();
         console.log(data);
 
-        const decrementValueid = document.getElementById("decrementValueid");
+        const decrementValueid = document.querySelector("#decrementValueid");
         decrementValueid.addEventListener("click", function () {
           var value = parseInt(document.getElementById("number").value, 10);
           value = isNaN(value) ? 0 : value;
           if (value > 0) {
             value--;
             document.getElementById("number").value = value;
-
             const backColor = document.getElementById("number");
             const colorChange = backColor.value;
             const numberInput = parseInt(colorChange, 10);
@@ -107,15 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="product_name mt-2"><b>model:</b> ${
                   data[product].company
                 } ${data[product].model}</div>
-                <div class="product_price mt-1"><b>price:</b> ${
-                  data[product].price
-                }</div>
-                <div class="product_price mt-1"><b>color:</b> ${
-                  data[product].color
-                }</div>
-                <div class="product_price mt-1" ><b>year:</b> ${
-                  data[product].year
-                }</div>
+                <div class=" mt-1" ><b>year:</b> ${data[product].year}</div>
+                <div class=" mt-1"><b>color:</b> ${data[product].color}</div>
+                <div class="mt-1"><b>price:</b> ${data[product].price}</div>
                 <button id="btn-cart${product}" type="button" class="btn btn-primary mt-1">Add to Cart</button>
               </div>
             </div>
@@ -167,25 +160,34 @@ document.addEventListener("DOMContentLoaded", () => {
               const cartItemsInside =
                 document.getElementById("cartItemsInside");
               const cartItemEl = document.createElement("div");
-              cartItemEl.classList.add("mt-3", "items");
+              cartItemEl.classList.add("col-2");
               cartItemEl.innerHTML = `
-                <img class="product_image" id="description" src="${
-                  selectedProduct.image || selectedProduct.img
-                }">
-                <div class="product_info text-center mb-5">
-                  <div class="product_name mt-2"><b>model:</b> ${
-                    selectedProduct.company
-                  } ${selectedProduct.model}</div>
-                  <div class="product_price mt-1"><b>price:</b> ${
-                    selectedProduct.price
-                  }</div>
-                  <div class="product_price mt-1"><b>color:</b> ${
-                    selectedProduct.color
-                  }</div>
-                  <div class="product_price mt-1" ><b>year:</b> ${
-                    selectedProduct.year
-                  }</div>
-                </div>
+             <div class="cart-Inside">
+                      <img class="car-image-cart " id="description" src="${
+                        selectedProduct.image || selectedProduct.img
+                      }">
+                      <div class="text-center mb-2 Info-Cart mt-2">
+                      <div class="car-info-inside"><b>model:</b> ${
+                        selectedProduct.company
+                      }${selectedProduct.model}
+                      </div>
+                      <div class="" ><b>year:</b> ${
+                        selectedProduct.year
+                      }</div>        
+                      <div class=""><b>color:</b> ${selectedProduct.color}</div>
+
+                      <div class=" mt-1"><b>price:</b> ${
+                        selectedProduct.price
+                      }</div>
+                      
+                      </div>
+                          <input
+                          type="button"
+                          id="decrementValueid"
+                          value="-"
+                          class="minus-inside"
+                        />
+              </div>
               `;
 
               cartItemsInside.appendChild(cartItemEl);

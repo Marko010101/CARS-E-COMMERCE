@@ -126,12 +126,18 @@ body {
 }
 .description-image {
   width: 100%;
+  padding: 20px;
+  border: 5px solid #b7e6f3a0;
+  border-radius: 200px;
+  box-shadow: 0 5px 100px #545757;
 }
 .name-desc {
   font-size: 35px;
 }
 .mb-css {
-  margin-bottom: 20%;
+  margin-bottom: 10%;
+  margin-left: 15%;
+  font-size: 20px;
 }
 .file-css {
   margin-top: -4%;
@@ -202,7 +208,62 @@ body {
 .active {
   background-color: #024a2f;
   color: white;
+  height: 54px;
+}
+.cart-Inside {
+  background-color: #035164;
+  padding: 10px;
+  box-shadow: 0 1px 50px #545757;
+  letter-spacing: 1px;
+  border: solid #023932;
+  border-radius: 700px;
 }
 .cart-img {
+  height: 25px;
+}
+.cartItemsInside {
+  display: flex;
+  background-color: #035164;
+}
+.car-info-inside {
+  font-size: 10px;
+}
+.Info-Cart {
+  align-items: center;
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 12px;
+}
+.car-image-cart {
+  width: 100%;
+  height: 60px;
+  border-radius: 600px;
+}
+.minus-inside {
+  width: 20px;
+  border-radius: 50px;
   height: 35px;
+  margin-left: 40%;
+}
+.col-4 .h1 {
+  color: white;
+}
+.random-image {
+  width: 100%;
+  height: 210px;
+  border-radius: 600px;
+  padding: 20px;
+}
+.items-desc {
+  background-color: #035164;
+  padding: 20px;
+  letter-spacing: 1px;
+  border: solid #00dfc4;
+  border-radius: 500px;
+}
+.main {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
 }
