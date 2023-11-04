@@ -148,11 +148,6 @@ body {
 .gapp {
   margin-right: 10px;
 }
-.centered-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .input-numbers {
   border-radius: 50px;
   text-align: center;
@@ -178,12 +173,22 @@ body {
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+hr {
+  color: gray;
+}
+
+.display-flex-sizes {
+  align-items: center;
+  justify-content: space-between;
+}
 
 .topnav {
   overflow: hidden;
   background-color: #024a2f;
   position: relative;
   overflow-x: auto;
+  width: 40rem;
+  margin-left: 9rem;
 }
 .topnav::-webkit-scrollbar {
   width: 0.5em; /* Adjust the width of the scrollbar as per your preference */
