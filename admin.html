@@ -21,8 +21,10 @@
   <body>
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-3">
-          <div class="centered-container mt-5">
+        <h1 class="text-center mb-3 mt-5 h1-white">Dream Car Depot</h1>
+        <!-- Header -->
+        <div class="d-flex display-flex-sizes">
+          <div class="">
             <div>
               <input
                 type="button"
@@ -41,28 +43,32 @@
               />
             </div>
           </div>
-        </div>
-        <div class="col-6">
-          <h1 class="text-center mb-5 mt-3 h1-white">Dream Car Depot</h1>
-          <!-- cart section -->
-          <div class="topnav">
-            <a href="#home" class="active">cart</a>
-            <div id="myLinks">
-              <div class="cartItemsInside" id="cartItemsInside"></div>
+          <div class="">
+            <!-- cart section -->
+            <div class="topnav">
+              <a href="#home" class="active">cart</a>
+              <div id="myLinks">
+                <div class="cartItemsInside" id="cartItemsInside"></div>
+              </div>
+              <a href="javascript:void(0);" class="icon" id="openCart">
+                <img src="img/icons8-cart-48.png" class="cart-img" />
+              </a>
             </div>
-            <a href="javascript:void(0);" class="icon" id="openCart">
-              <img src="img/icons8-cart-48.png" class="cart-img" />
-            </a>
           </div>
-        </div>
-        <div class="col-3">
-          <button type="button" class="btn btn-danger mt-5" id="signOut">
-            Log out
-          </button>
+          <div class="">
+            <div class="d-flex gap-3">
+              <a href="create.html" class="link-success text-end"
+                >List your car</a
+              >
+              <button type="button" class="btn btn-danger" id="signOut">
+                Log out
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <hr />
-      <a href="create.html" class="link-success text-end">List your car</a>
+
       <div class="row" id="product_container"></div>
       <div class="row justify-content-center">
         <div
