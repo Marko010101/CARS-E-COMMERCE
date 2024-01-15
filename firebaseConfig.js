@@ -1,4 +1,4 @@
-const firebaseConfig = {
+/* const firebaseConfig = {
   apiKey: "AIzaSyBt0Gal6oePzhLkHYPZevgp83qQLNBATMM",
   authDomain: "markos-project---1st.firebaseapp.com",
   projectId: "markos-project---1st",
@@ -9,3 +9,4 @@ const firebaseConfig = {
 };
 
 export default firebaseConfig;
+ */
